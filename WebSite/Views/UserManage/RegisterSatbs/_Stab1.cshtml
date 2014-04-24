@@ -1,0 +1,148 @@
+﻿@using Models.Properties
+@using Trirand.Web.Mvc
+@model Models.ViewModels.RegisterForConference.UserReportsViewModel
+@Html.Trirand().JQGrid(Model.OrdersGrid, "UserReportsJqGrid")
+
+<script>
+    var check;
+    var report;
+    function customButtonClicked() {
+        $("#dialog-form").dialog( "open" );
+    }
+    
+    function readCheckFile(input) {
+
+        var file = $(input)[0].files[0];
+        if (file) {
+            if (file.size < 15728640) {
+                var FR = new FileReader();
+                FR.onload = function (e) {
+                    check = e.target.result + ',' + file.name;
+                };
+                FR.readAsDataURL(file);
+            } else {
+                document.getElementById('tr_Path').innerHTML = document.getElementById('tr_Path').innerHTML;
+                alert("File Size > 15Mb");
+            }
+
+        }
+    }
+    
+    function readReportFile(input) {
+
+        var file = $(input)[0].files[0];
+        if (file) {
+            if (file.size < 15728640) {
+                var FR = new FileReader();
+                FR.onload = function (e) {
+                    report = e.target.result + ',' + file.name;
+                };
+                FR.readAsDataURL(file);
+            } else {
+                document.getElementById('tr_Path').innerHTML = document.getElementById('tr_Path').innerHTML;
+                alert("File Size > 15Mb");
+            }
+
+        }
+    }
+    
+    function GetUserReportsModel() {
+        var self = this;
+        self.ApplicationId = $('#ApplicationId').val();
+        self.ResearchAreasId = $('#ResearchAreasId').val();
+        self.PathToReport = report;
+        self.PathToCheck = check;
+        self.NameOfReport = $('#NameOfReport').val();
+        self.AuthorsReport = $('#AuthorsReport').val();
+    }
+    
+    $(document).ready(function () {
+        $("#dialog-form").dialog({
+            autoOpen: false,
+            width: 500,
+            modal: true,
+            buttons: {
+                "@Resources.CreateAnReportBytton": function () {
+                    var request = new GetUserReportsModel();
+                    //todo: add validate
+                    $.ajax({
+                        url: '@Url.Action("AddUserReports", "UserManage")',
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(request),
+                        success: function (result) {
+                            $('#dialog-form').dialog("close");
+                            $('#dialog-form').find('form')[0].reset();
+                            $("#UserReportsJqGrid").trigger("reloadGrid");
+                        },
+                        error: function (result) {
+                            alert("Failed");
+                        }
+                    });
+                },
+                "@Resources.CancelButton": function () {
+                    $(this).dialog("close");
+                    $(this).find('form')[0].reset();
+                }
+            },
+           
+           
+        });
+    });
+</script>
+
+
+<div id="dialog-form" title="Basic dialog">
+@using (Html.BeginForm(new { @class = "form-horizontal", role = "form", id = "AddReportForm" }))
+{
+    <div class="form-horizontal">
+    @Html.HiddenFor(x => x.ApplicationId)
+        <h3>@Resources.OrganizingCommittee_ContactInformation</h3>
+        <h1></h1>
+        <div id="success-message" class="alert alert-success" style="display: none">
+            @Resources.OrganizingCommittee_SuccessMessage
+        </div>
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(m => m.ResearchAreasId, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.ResearchAreasId, Model.ResearchAreas, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ResearchAreasId)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PathToReport, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                <input type="file" name="file" id="PathToReport" onchange="readReportFile(this)" />
+                @Html.ValidationMessageFor(m => m.PathToReport)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PathToCheck, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                <input type="file" name="file" id="PathToCheck" onchange="readCheckFile(this)" />
+                @Html.ValidationMessageFor(m => m.PathToCheck)
+                <p class=""></p>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NameOfReport, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.NameOfReport, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.NameOfReport)
+                <p class=""></p>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.AuthorsReport, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.AuthorsReport, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.AuthorsReport)
+                <p class=""></p>
+            </div>
+        </div>
+    </div>
+}
+</div>
+ 

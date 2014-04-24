@@ -1,0 +1,96 @@
+﻿@using Models.Properties
+@model Models.ViewModels.PersonalInfoViewModel
+@{
+    ViewBag.Title = "PersonalUserAccount";
+    Layout = "~/Views/Shared/_LayoutForUserManagePage.cshtml";
+}
+
+<h2>PersonalUserAccount</h2>
+@{
+    var sizeCol = 12;
+    var countItems = Model.ViewActiveConferences.ActiveConferences.Count();
+    if (countItems != 0)
+    {
+        sizeCol = 12 / countItems;
+    }
+}
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Name, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Name)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Patronymic, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Patronymic)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Surname, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Surname)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.AcademicDegree, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.AcademicDegree)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Email, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.AcademicTitle, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.AcademicTitle)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Organization, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Organization)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Address, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Address)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserInfo.Phone, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.UserInfo.Phone)
+        </div>
+    </div>
+
+</form>
+
+<div class="row">
+    @foreach (var item in Model.ViewActiveConferences.ActiveConferences)
+    {
+        <div class="col-md-@sizeCol">
+            <h2>@item.NameOfTheConference</h2>
+            <p>
+                @item.BriefInformation
+            </p>
+            <p>
+                @Html.ActionLink(Resources.LearnMore_Button, "DetailsInfoForRegisterConference", "UserManage", new { conferenceId = item.ConferenceId }, new { @class = "btn btn-default" })
+            </p>
+        </div>
+    }
+</div>

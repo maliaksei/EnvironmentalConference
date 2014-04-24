@@ -1,0 +1,122 @@
+﻿@using Models.Properties
+@model Models.ViewModels.RegisterForConference.RegisterForConferenceOtherDataViewModel
+
+@using (Html.BeginForm("SaveConferenceOtherData", "UserManage", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "SaveConferenceOther" }))
+{
+    <h1></h1>
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => x.ApplicationId)
+    <div class="form-group">
+        @Html.LabelFor(m => m.FormOfParticipationId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.FormOfParticipationId, Model.FormOfParticipations, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FormOfParticipationId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NeedForReservation, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(m => m.NeedForReservation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.NeedForReservation)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EstimatedTimeOfArrival, new { @class = "col-md-2 control-label" })
+        <div class='input-group date col-md-10' id='datetimepicker1'>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <input id="EstimatedTimeOfArrival" type='text' class="form-control" style="max-width: 240px" />
+            <span id="start-date-span-valid" class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="EstimatedTimeOfArrival">
+                <span class="" for="EstimatedTimeOfArrival">@String.Format(Resources.FieldRequired, Resources.Summary_StartDate)</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Comment, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Comment, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Comment)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value=@Resources.SaveButtonName class="btn btn-default" />
+            <input id="apply" value=@Resources.Button_Apply class="btn btn-default" />
+        </div>
+    </div>
+
+    @*@Html.DropDownListFor(m => m.FormOfParticipationId, Model.FormOfParticipations, new { @class = "selectpicker" })*@
+}
+
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+    function convertDateTime(dateTime) {
+        var newDateTime = dateTime;
+        var dateAndTimeList = newDateTime.split(' ');
+        var dateList = dateAndTimeList[0].split('.');
+        var timeList = dateAndTimeList[1].split(':');
+        return new Date(dateList[2], dateList[1], dateList[0], timeList[0], timeList[1]);
+
+    }
+
+    $(document).ready(function () {
+        //$('.selectpicker').selectpicker();
+        $('#datetimepicker1').data('datetimepicker').setDate(convertDateTime('@Model.EstimatedTimeOfArrival'));
+    });
+
+    $('#SaveConferenceOther').submit(function () {
+        var request = new OtherDataModel();
+        if ($('.input-validation-error').length == 0) {
+            $.ajax({
+                url: '@Url.Action("SaveConferenceOtherData", "UserManage")',
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(request),
+                success: function (result) {
+
+                },
+                error: function (result) {
+
+                    alert("Failed");
+                }
+            });
+        }
+
+        return false;
+    });
+    
+    $("#apply").click(function () {
+        var request = new OtherDataModel();
+        $.ajax({
+            url: '@Url.Action("ApplyApplication", "UserManage")',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(request),
+            success: function (result) {
+                //todo: redirect
+            },
+            error: function (xhr, status, error) {
+                DisplayError(xhr);
+            }
+        });
+    });
+    function DisplayError(xhr) {
+        var msg = JSON.parse(xhr.responseText);
+        alert(msg.Message);
+    }
+    
+    function OtherDataModel() {
+        var self = this;
+        self.ApplicationId = $('#ApplicationId').val();
+        self.FormOfParticipationId = $('#FormOfParticipationId').val();
+        self.NeedForReservation = $('#NeedForReservation').is(':checked');
+        self.EstimatedTimeOfArrival = $('#EstimatedTimeOfArrival').val();
+        self.Comment = $('#Comment').val();
+    }
+</script>

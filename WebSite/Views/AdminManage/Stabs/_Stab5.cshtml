@@ -1,0 +1,41 @@
+﻿@using Trirand.Web.Mvc
+@model Models.JqGridModels.FilesOfConferenceJqGridModel
+
+@Html.Trirand().JQGrid(Model.OrdersGrid, "FilesOfConference")
+
+<script>
+    var text;
+    function customFileUpload(value, editOptions) {
+        var rowID = editOptions.id;
+        var fileUpload = $("<input>", { type: "file", name: "file" + rowID, onchange: "readImage(this)" });
+
+        return fileUpload;
+    }
+
+    function getCustomFileUpload(elem, two, three) {
+        var dataVal = $(elem).val();
+        if (dataVal == undefined) {
+            return dataVal;
+        }
+        return text;
+    }
+
+    function readImage(input) {
+        
+        var file = $(input)[0].files[0];
+        if (file) {
+            if (file.size < 15728640) {
+                var FR = new FileReader();
+                FR.onload = function(e) {
+                    text = e.target.result + ',' + file.name;
+                };
+                FR.readAsDataURL(file);
+            } else {
+                document.getElementById('tr_Path').innerHTML = document.getElementById('tr_Path').innerHTML;
+                alert("File Size > 15Mb");
+            }
+           
+        }
+    }
+
+</script>

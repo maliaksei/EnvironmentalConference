@@ -1,0 +1,86 @@
+﻿@using WebSite.Properties
+@model Models.ViewModels.EditConferenceViewModels.SummaryViewModel
+@using (Html.BeginForm("SaveSummaryData", "AdminManage", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "SaveSummaryDataForm"}))
+{
+    @Html.HiddenFor(x => x.ConferenceId)
+    <h1></h1>
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.NameOfTheConference, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.NameOfTheConference, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.NameOfTheConference)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BriefInformation, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.BriefInformation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BriefInformation)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })
+        <div class='input-group date col-md-10' id='datetimepicker1'>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <input id="StartDate" type='text' class="form-control" style="max-width: 240px" />
+            <span id="start-date-span-valid" class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="StartDate">
+                <span class="" for="StartDate">@String.Format(Resources.FieldRequired, Resources.Summary_StartDate)</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Venue, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Venue, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Venue)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value=@Resources.SaveButtonName class="btn btn-default" />
+            <input id="NextStab1" value=@Resources.NextButtonName class="btn btn-default" />
+        </div>
+    </div>
+}
+<script>
+    $('#SaveSummaryDataForm').submit(function () {
+        var request = new SummaryModel();
+        if (request.StartDate == "") {
+            $('#start-date-span-valid').removeClass('field-validation-valid').addClass('field-validation-error');
+        } else {
+            $('#start-date-span-valid').removeClass('field-validation-error').addClass('field-validation-valid');
+
+            if ($('.input-validation-error').length == 0) {
+                $.ajax({
+                    url: '@Url.Action("SaveSummaryData", "AdminManage")',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(request),
+                    success: function (result) {
+                       
+                    },
+                    error: function (result) {
+
+                        alert("Failed");
+                    }
+                });
+            }
+        }
+
+        return false;
+    });
+
+    function SummaryModel() {
+        var self = this;
+        self.ConferenceId = $('#ConferenceId').val();
+        self.NameOfTheConference = $('#NameOfTheConference').val();
+        self.BriefInformation = $('#BriefInformation').val();
+        self.StartDate = $('#StartDate').val();
+        self.Venue = $('#Venue').val();
+    }
+</script>

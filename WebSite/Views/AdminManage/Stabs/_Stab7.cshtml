@@ -1,0 +1,80 @@
+﻿@using Trirand.Web.Mvc
+@using WebSite.Properties
+@model Models.ViewModels.EditConferenceViewModels.FinanceAndLayoutViewModel
+
+@using (Html.BeginForm("SaveFinanceAndLayoutData", "AdminManage", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "SaveFinanceAndLayoutDataForm" }))
+{
+    @Html.HiddenFor(x => x.ConferenceId)
+    <div id="success-message-form-by-stab7" class="alert alert-success" style="display: none">
+        @Models.Properties.Resources.OrganizingCommittee_SuccessMessage
+    </div>
+    <h3>@Models.Properties.Resources.FinancialConditions_Header</h3>
+    @Html.TextAreaFor(x => x.FinancialConditions)
+
+
+    <h3>@Models.Properties.Resources.RequirementsForRegistration_Header</h3>
+    @Html.TextAreaFor(x => x.RequirementsForRegistration)
+
+    <div class="row"></div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value=@Resources.SaveButtonName class="btn btn-default" />
+            <input type="button" id="PublicateButtonName" value=@Resources.PublicateButtonName class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+<script>
+    var financialConditionsEditor = CKEDITOR.replace("FinancialConditions");
+    var requirementsForRegistrationEditor = CKEDITOR.replace("RequirementsForRegistration");
+
+    $('#SaveFinanceAndLayoutDataForm').submit(function () {
+        var request = new FinanceAndLayoutModel();
+        $.ajax({
+            url: '@Url.Action("SaveFinanceAndLayoutData", "AdminManage")',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(request),
+            success: function(result) {
+                onSuccess();
+            },
+            error: function(result) {
+                alert("Failed");
+            }
+        });
+        return false;
+    });
+
+    $('#PublicateButtonName').click(function () {
+        var model = this;
+        model.ConferenceId = $('#ConferenceId').val();
+        $.ajax({
+            url: '@Url.Action("ValidateAndPublicate", "AdminManage")',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(model),
+            success: function (result) {
+                onSuccess();
+            },
+            error: function (result) {
+                alert("Failed");
+            }
+        });
+    });
+
+    function FinanceAndLayoutModel() {
+        var self = this;
+        self.ConferenceId = $('#ConferenceId').val();
+        self.FinancialConditions = financialConditionsEditor.getData();
+        self.RequirementsForRegistration = requirementsForRegistrationEditor.getData();
+    }
+
+    function onSuccess() {
+        $('#success-message-form-by-stab7').show();
+        $('#success-message-form-by-stab7').delay(1000).fadeOut();
+    }
+</script>
+

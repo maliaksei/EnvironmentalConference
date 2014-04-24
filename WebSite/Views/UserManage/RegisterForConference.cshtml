@@ -1,0 +1,29 @@
+﻿@using Models.Properties
+@model Models.ViewModels.RegisterForConference.RegisterForConferenceViewModel
+@{
+    ViewBag.Title = "RegisterForConference";
+    Layout = "~/Views/Shared/_LayoutForUserManagePage.cshtml";
+}
+
+<h2>@Resources.CreateConferenceHeader</h2>
+@*todo: replace this resources to model.resources*@
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#tabs-1">@Resources.RegisterForConference_Stab1</a></li>
+    <li><a href="#tabs-2">@Resources.RegisterForConference_Stab2</a></li>
+</ul>
+<div class="tab-content .col-sm-12">
+    @Html.HiddenFor(x => x.ConferenceId)
+    <div class="tab-pane active" id="tabs-1">
+        @Html.Partial("RegisterSatbs/_Stab1", Model.UserReportsViewModel)
+    </div>
+    <div class="tab-pane" id="tabs-2">
+        @Html.Partial("RegisterSatbs/_Stab2", Model.RegisterForConferenceOtherData)
+    </div>
+</div>
+
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+</script>

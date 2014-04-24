@@ -1,0 +1,126 @@
+﻿@using WebSite.Properties
+@model Models.ViewModels.EditConferenceViewModels.SummaryViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutForUserManagePage.cshtml";
+}
+
+<h2>@Resources.CreateConferenceHeader</h2>
+
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#tabs-1">@Resources.SummaryInfoStabTitle</a></li>
+    <li><a href="#tabs-2">@Resources.EditConference_KeyDates_TabName</a></li>
+    <li><a href="#tabs-3">@Resources.EditConference_ResearchAreas_TabName</a></li>
+    <li><a href="#tabs-4">@Resources.EditConference_OrganizingCommittee_TabName</a></li>
+    <li><a href="#tabs-5">@Resources.EditConference_FilesOfConference_TabName</a></li>
+    <li><a href="#tabs-6">@Resources.EditConference_FormOfParticipation_TabName</a></li>
+    <li><a href="#tabs-7">@Resources.EditConference_FinanceAndRequirements_TabName</a></li>
+</ul>
+
+
+<div class="tab-content .col-sm-12">
+    <div class="tab-pane active" id="tabs-1">
+        @using (Html.BeginForm("CreateConference", "AdminManage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <h1></h1>
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(m => m.NameOfTheConference, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.NameOfTheConference, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.NameOfTheConference)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.BriefInformation, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.BriefInformation, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.BriefInformation)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })
+                <div class='input-group date col-md-10' id='datetimepicker1'>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    <input id="StartDate" type='text' class="form-control" style="max-width: 240px" />
+                    <span id="start-date-span-valid" class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="StartDate">
+                        <span class="" for="StartDate">@String.Format(Resources.FieldRequired, Resources.Summary_StartDate)</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Venue, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Venue, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Venue)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value=@Resources.CreateConferenceButton class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <div class="tab-pane" id="tabs-2">
+
+    </div>
+    <div class="tab-pane" id="tabs-3">
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        //$('#myTab a').click(function (e) {
+        //    e.preventDefault();
+        //    $(this).tab('show');
+        //});
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+        
+        $('form').submit(function () {
+            var request = new SummaryModel();
+            if (request.StartDate == "") {
+                $('#start-date-span-valid').removeClass('field-validation-valid').addClass('field-validation-error');
+            } else {
+                $('#start-date-span-valid').removeClass('field-validation-error').addClass('field-validation-valid');
+
+                if ($('.input-validation-error').length == 0) {
+                    $.ajax({
+                        url: '@Url.Action("CreateConference", "AdminManage")',
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(request),
+                        success: function (result) {
+                            window.location.href = result.Url;
+                        },
+                        error: function (result) {
+
+                            alert("Failed");
+                        }
+                    });
+                }
+            }
+
+            return false;
+        });
+
+        function SummaryModel() {
+            var self = this;
+            self.ConferenceId = $('#ConferenceId').val();
+            self.NameOfTheConference = $('#NameOfTheConference').val();
+            self.BriefInformation = $('#BriefInformation').val();
+            self.StartDate = $('#StartDate').val();
+            self.Venue = $('#Venue').val();
+        }
+    </script>
+}

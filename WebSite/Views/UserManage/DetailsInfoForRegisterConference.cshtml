@@ -1,0 +1,61 @@
+﻿@using Trirand.Web.Mvc
+@model Models.ViewModels.UserAccount.DetailsInfoForRegisterConferenceViewModel
+@{
+    ViewBag.Title = "DetailsInfoForRegisterConference";
+    Layout = "~/Views/Shared/_LayoutForUserManagePage.cshtml";
+}
+
+<h2>@Model.ConferenceSummaryInfo.NameOfConference</h2>
+
+<h4>Информация о конференции:</h4>
+<ol>@Html.DisplayNameFor(x => x.ConferenceSummaryInfo.ParticipationForms)
+    @foreach (var item in Model.ConferenceSummaryInfo.ParticipationForms)
+    {
+        <li>@item</li>
+    }
+</ol>
+<dl class="dl-horizontal">
+    @Html.HiddenFor(x => x.ConferenceSummaryInfo.ConferenceId)
+    <dt>@Html.LabelFor(x => x.ConferenceSummaryInfo.StartDate)</dt>
+    <dd>@Html.DisplayFor(x => x.ConferenceSummaryInfo.StartDate)</dd>
+
+    <dt>@Html.LabelFor(x => x.ConferenceSummaryInfo.BriefInformation)</dt>
+    <dd>@Html.DisplayFor(x => x.ConferenceSummaryInfo.BriefInformation)</dd>
+
+    <dt>@Html.LabelFor(x => x.ConferenceSummaryInfo.MeetingPoint)</dt>
+    <dd>@Html.DisplayFor(x => x.ConferenceSummaryInfo.MeetingPoint)</dd>
+</dl>
+
+<h4>Загруженные доклады:</h4>
+@Html.Trirand().JQGrid(Model.ActiveApplicationInfoViewModel.UserReportsJqGridModel.OrdersGrid, "UserReportsJqGrid")
+<br/>
+<h4>Информация о заявке:</h4>
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        @Html.LabelFor(x => x.ActiveApplicationInfoViewModel.ParticipationFormId, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.ActiveApplicationInfoViewModel.ParticipationFormsListItems.SingleOrDefault(y => y.Selected).Text)
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(x => x.ActiveApplicationInfoViewModel.IsHotel, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.ActiveApplicationInfoViewModel.IsHotel, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(x => x.ActiveApplicationInfoViewModel.ArrivalTime, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.ActiveApplicationInfoViewModel.ArrivalTime, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(x => x.ActiveApplicationInfoViewModel.Comment, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9 form-control-static">
+            @Html.DisplayFor(x => x.ActiveApplicationInfoViewModel.Comment, new { @class = "form-control" })
+        </div>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+﻿@using WebSite.Properties
+@model Models.ViewModels.DetailsOfTheConferenceViewModel
+@{
+    ViewBag.Title = "DetailsOfTheConference";
+    Layout = "~/Views/Shared/_LayoutForUserManagePage.cshtml";
+}
+
+<h2>DetailsOfTheConference</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <section id="loginForm">
+            @using (Html.BeginForm(new { @class = "form-horizontal", role = "form" }))
+            {
+                @*@Html.AntiForgeryToken()*@
+                <h4>@Resources.LocalAccountToLogInText</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Summary.NameOfTheConference, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DisplayFor(m => m.Summary.NameOfTheConference, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink(@Models.Properties.Resources.DetailsOfTheConferenceViewModel_RegisterButton, "RegisterForConference", "UserManage", new { conferenceId = Model.ConferenceId }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>

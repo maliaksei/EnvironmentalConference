@@ -1,0 +1,10 @@
+d:\Project\BuzzRegistration\buzzregistration.svn.itransition.corp\trunk\Trirand.Web.Mvc\bin\Debug\Trirand.Web.Mvc.dll
+d:\Project\BuzzRegistration\buzzregistration.svn.itransition.corp\trunk\Trirand.Web.Mvc\bin\Debug\Trirand.Web.Mvc.pdb
+d:\Project\BuzzRegistration\buzzregistration.svn.itransition.corp\trunk\Trirand.Web.Mvc\obj\Debug\Trirand.Web.Mvc.dll
+d:\Project\BuzzRegistration\buzzregistration.svn.itransition.corp\trunk\Trirand.Web.Mvc\obj\Debug\Trirand.Web.Mvc.pdb
+d:\Project\BuzzRegistration\buzzregistration.svn.itransition.corp\trunk\Trirand.Web.Mvc\obj\Debug\Trirand.Web.Mvc.csprojResolveAssemblyReference.cache
+D:\Мои документы\Diplom\Trirand.Web.Mvc\bin\Debug\Trirand.Web.Mvc.dll
+D:\Мои документы\Diplom\Trirand.Web.Mvc\bin\Debug\Trirand.Web.Mvc.pdb
+D:\Мои документы\Diplom\Trirand.Web.Mvc\obj\Debug\Trirand.Web.Mvc.csprojResolveAssemblyReference.cache
+D:\Мои документы\Diplom\Trirand.Web.Mvc\obj\Debug\Trirand.Web.Mvc.dll
+D:\Мои документы\Diplom\Trirand.Web.Mvc\obj\Debug\Trirand.Web.Mvc.pdb

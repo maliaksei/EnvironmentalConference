@@ -1,0 +1,45 @@
+System.ArgumentException was unhandled by user code
+  HResult=-2147024809
+  Message=Value does not fall within the expected range.
+  Source=HSS.Shared.Framework
+  StackTrace:
+       at HSS.HousingHub.Shared.Framework.Validation.Contract.Assert[T](Boolean condition, String message) in d:\Projects\HousingHub\Demo\HousingHub\Shared\Framework\Validation\Contract.cs:line 37
+       at HSS.HousingHub.Shared.Framework.Validation.Contract.Requires[TException](Boolean condition, String parameterName) in d:\Projects\HousingHub\Demo\HousingHub\Shared\Framework\Validation\Contract.cs:line 19
+       at HSS.HousingHub.Business.Financial.Workers.StartHapInstructionWorker.Do(InstructionGenerationModel generationModel) in d:\Projects\HousingHub\Demo\HousingHub\Business\Business.Financial\Workers\StartHapInstructionWorker.cs:line 30
+       at HSS.HousingHub.Business.Financial.Processors.InstructionsGeneration.BaseInstructionProcessor.<Process>b__1(IWorker w) in d:\Projects\HousingHub\Demo\HousingHub\Business\Business.Financial\Processors\InstructionsGeneration\BaseInstructionProcessor.cs:line 52
+       at Microsoft.Practices.EnterpriseLibrary.Common.Utility.EnumerableExtensions.ForEach[T](IEnumerable`1 sequence, Action`1 action)
+       at HSS.HousingHub.Business.Financial.Processors.InstructionsGeneration.BaseInstructionProcessor.Process(FinancialGenerationContext generationContext) in d:\Projects\HousingHub\Demo\HousingHub\Business\Business.Financial\Processors\InstructionsGeneration\BaseInstructionProcessor.cs:line 52
+       at HSS.HousingHub.Business.Financial.Servicies.FinancialGenerationService.GenerateInstructions(FinancialGenerationContext generationContext) in d:\Projects\HousingHub\Demo\HousingHub\Business\Business.Financial\Servicies\FinancialGenerationService.cs:line 72
+       at HSS.HousingHub.Business.Observer.Effects.GeneralEffects.FinancialEffect.Run(TaskCompletionContext context) in d:\Projects\HousingHub\Demo\HousingHub\Business\Observer\Effects\GeneralEffects\FinancialEffect.cs:line 72
+       at HSS.HousingHub.Business.Observer.Predicates.BasePredicate.Complete(TaskCompletionContext context) in d:\Projects\HousingHub\Demo\HousingHub\Business\Observer\Predicates\BasePredicate.cs:line 100
+       at HSS.HousingHub.Business.Observer.Services.PublicObserverService.PerformComplete(TaskCompletionContext taskCompletionContext) in d:\Projects\HousingHub\Demo\HousingHub\Business\Observer\Services\PublicObserverService.cs:line 95
+       at Castle.Proxies.Invocations.IPublicObserverService_PerformComplete.InvokeMethodOnTarget()
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.UpdateTaskStatusInterceptor.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\UpdateTaskStatusInterceptor.cs:line 53
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.BaseTaskAccessInterceptor`1.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\BaseTaskAccessInterceptor.cs:line 59
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.BaseTaskAccessInterceptor`1.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\BaseTaskAccessInterceptor.cs:line 59
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at Castle.Proxies.IBaseServiceProxy_32.PerformComplete(TaskCompletionContext taskCompletionContext)
+       at HSS.HousingHub.Business.Transfers.PrivateContract.DetailsProviders.TransferRequestProvider.PerformObserverComplete(TransferRequestViewModel model) in d:\Projects\HousingHub\Demo\HousingHub\Business\Transfers\PrivateContract\DetailsProviders\TransferRequestProvider.cs:line 224
+       at HSS.HousingHub.Business.Transfers.PrivateContract.Processors.BaseTransfersProcessor.CompleteTask(TransferRequestViewModel viewModel) in d:\Projects\HousingHub\Demo\HousingHub\Business\Transfers\PrivateContract\Processors\BaseTransfersProcessor.cs:line 59
+       at HSS.HousingHub.Business.Transfers.PrivateContract.Processors.EndOfParticipationProcessor.CompleteTask(TransferRequestViewModel viewModel) in d:\Projects\HousingHub\Demo\HousingHub\Business\Transfers\PrivateContract\Processors\EndOfParticipationProcessor.cs:line 76
+       at HSS.HousingHub.Business.Transfers.Services.TransfersService.CompleteTask(TransferRequestViewModel model) in d:\Projects\HousingHub\Demo\HousingHub\Business\Transfers\Services\TransfersService.cs:line 127
+       at Castle.Proxies.Invocations.ITransfersService_CompleteTask.InvokeMethodOnTarget()
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.ReplaceTaskViewModelWithHistoryInterceptor.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\ReplaceTaskViewModelWithHistoryInterceptor.cs:line 53
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.UpdateTaskStatusInterceptor.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\UpdateTaskStatusInterceptor.cs:line 53
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.BaseTaskAccessInterceptor`1.ProceedInvocation(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\BaseTaskAccessInterceptor.cs:line 82
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.BaseTaskAccessInterceptor`1.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\BaseTaskAccessInterceptor.cs:line 71
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.BaseTaskAccessInterceptor`1.ProceedInvocation(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\BaseTaskAccessInterceptor.cs:line 82
+       at HSS.HousingHub.Business.WorkQueue.Interceptors.BaseTaskAccessInterceptor`1.Intercept(IInvocation invocation) in d:\Projects\HousingHub\Demo\HousingHub\Business\WorkQueue\Interceptors\BaseTaskAccessInterceptor.cs:line 71
+       at Castle.DynamicProxy.AbstractInvocation.Proceed()
+       at Castle.Proxies.IBaseServiceProxy_42.CompleteTask(TransferRequestViewModel model)
+       at SyncInvokeCompleteTask(Object , Object[] , Object[] )
+       at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)
+       at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc& rpc)
+  InnerException: 

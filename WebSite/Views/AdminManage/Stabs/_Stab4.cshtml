@@ -1,0 +1,114 @@
+﻿@using Models.Properties
+@using Trirand.Web.Mvc
+@model Models.ViewModels.EditConferenceViewModels.OrganizingCommitteeViewModel
+
+@Html.Trirand().JQGrid(Model.OrganizingCommitteeMembers.OrdersGrid, "OrganizingCommitteeMembersJQGrid")
+
+@Html.Trirand().JQDatePicker(
+            new JQDatePicker
+                {
+                    DisplayMode = DatePickerDisplayMode.ControlEditor,
+                    ShowOn = ShowOn.Both,
+                    DateFormat = "yyyy/mm/dd",
+                    MinDate = DateTime.Now.Date,
+                    MaxDate = new DateTime(2100, 12, 1),
+                    AutoSize = true
+                }, "DatePicker")
+
+
+@using (Html.BeginForm("EditOrganizingCommitteeContactInformation", "AdminManage", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "OrganizingCommitteeContactInformationForm" }))
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.HiddenFor(x => x.OrganizingCommitteeId)
+        <h3>@Resources.OrganizingCommittee_ContactInformation</h3>
+        <h1></h1>
+        <div id="success-message" class="alert alert-success" style="display: none">
+            @Resources.OrganizingCommittee_SuccessMessage
+        </div>
+        @Html.ValidationSummary(true)
+        <div class="form-group left">
+            @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Address)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @type = "phone" })
+                @Html.ValidationMessageFor(m => m.Phone)
+               <p class=""></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value=@Resources.SaveButtonName class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    $(document).ready(function() {
+        $('#Phone').inputmask("mask", { "mask": "+(999 99) 999-99-99" });
+    });
+    $('#OrganizingCommitteeContactInformationForm').submit(function () {
+        var request = new OrganizingCommitteeModel();
+        if (!validatePhoneNubber(request.Phone)) {
+            //todo: add message
+            $('#Phone').after('<p class="text-danger">Kfkfkf</p>');
+        } else {
+            if ($('.input-validation-error').length == 0) {
+                $.ajax({
+                    url: '@Url.Action("EditOrganizingCommitteeContactInformation", "AdminManage")',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(request),
+                    success: function (result) {
+                        onSuccess();
+                    },
+                    error: function (result) {
+                        alert("Failed");
+                    }
+                });
+            }
+        }
+
+        return false;
+    });
+
+
+    function OrganizingCommitteeModel() {
+        var self = this;
+        self.OrganizingCommitteeId = $('#OrganizingCommitteeId').val();
+        self.Address = $('#Address').val();
+        self.Email = $('#Email').val();
+        self.Phone = $('#Phone').val();
+        self.OrganizingCommitteeMembers = null;
+    }
+
+
+    function onSuccess() {
+        $('#success-message').show();
+        $('#success-message').delay(1000).fadeOut();
+    }
+
+    function validatePhoneNubber(phone) {
+        var countNumeric = phone.replace(/[^0-9]/g, "").length;
+        if (countNumeric < 12) {
+            return false;
+        }
+        return true;
+    }
+</script>

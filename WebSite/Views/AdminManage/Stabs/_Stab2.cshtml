@@ -1,0 +1,16 @@
+﻿@using Trirand.Web.Mvc
+@model Models.JqGridModels.KeyDatesJqGridModel
+
+@Html.Trirand().JQGrid(Model.OrdersGrid, "JQGrid1")
+
+@Html.Trirand().JQDatePicker(
+            new JQDatePicker
+                {
+                    DisplayMode = DatePickerDisplayMode.ControlEditor,
+                    ShowOn = ShowOn.Both,
+                    DateFormat = "yyyy/mm/dd",
+                    MinDate = DateTime.Now.Date,
+                    MaxDate = new DateTime(2100,12,1),
+                    AutoSize = true
+                }, "DatePicker")
+

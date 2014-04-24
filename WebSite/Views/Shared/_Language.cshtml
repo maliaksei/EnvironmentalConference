@@ -1,0 +1,7 @@
+﻿<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@System.Threading.Thread.CurrentThread.CurrentUICulture.DisplayName <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("English (United States)", "SetCulture", "Home", new { culture = "en-us", returnUrl = ViewContext.HttpContext.Request.Path}, null)</li>
+        <li>@Html.ActionLink("Russian", "SetCulture", "Home", new { culture = "ru-RU", returnUrl = ViewContext.HttpContext.Request.Path }, null)</li>
+    </ul>
+</li>

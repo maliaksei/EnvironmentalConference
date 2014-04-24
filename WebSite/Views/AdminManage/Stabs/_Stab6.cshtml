@@ -1,0 +1,73 @@
+﻿@using Trirand.Web.Mvc
+@using WebSite.Properties
+@model Models.ViewModels.EditConferenceViewModels.FormOfParticipationViewModel
+
+@using (Html.BeginForm("SaveFormOfParticipationData", "AdminManage", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormOfParticipationData" }))
+{
+    @Html.HiddenFor(x => x.ConferenceId)
+    <div class="row">
+        <div class="col-md-5">
+            @Html.Trirand().JQGrid(Model.FormOfParticipationJqGrid.OrdersGrid, "FormOfParticipation")
+        </div>
+        <div class="col-md-5">
+            @Html.Trirand().JQGrid(Model.LanguagesConferenceJqGrid.OrdersGrid, "Languages")
+        </div>
+
+    </div>
+    
+    <div id="success-message-form" class="alert alert-success" style="display: none">
+        @Models.Properties.Resources.OrganizingCommittee_SuccessMessage
+    </div>
+    <h3>@Models.Properties.Resources.ConditionsOfParticipation_Header</h3>
+    @Html.TextAreaFor(x => x.ConditionsOfParticipation)
+    
+    
+    <h3>@Models.Properties.Resources.ArrangementFee_Header</h3>
+    @Html.TextAreaFor(x => x.ArrangementFee)
+    
+    <div class="row"></div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value=@Resources.SaveButtonName class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+<script>
+    var editor = CKEDITOR.replace("ConditionsOfParticipation");
+    var arrangementFeeEditor = CKEDITOR.replace("ArrangementFee");
+
+    $('#FormOfParticipationData').submit(function () {
+        var request = new FormOfParticipationModel();
+        $.ajax({
+            url: '@Url.Action("SaveFormOfParticipationData", "AdminManage")',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(request),
+            success: function (result) {
+               onSuccess();
+            },
+            error: function (result) {
+                alert("Failed");
+            }
+        });
+        return false;
+    });
+
+    function FormOfParticipationModel() {
+        var self = this;
+        self.ConferenceId = $('#ConferenceId').val();
+        self.ConditionsOfParticipation = editor.getData();
+        self.ArrangementFee = arrangementFeeEditor.getData();
+    }
+
+    function onSuccess() {
+        $('#success-message-form').show();
+        $('#success-message-form').delay(1000).fadeOut();
+    }
+</script>
+
+
+

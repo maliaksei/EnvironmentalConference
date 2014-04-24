@@ -1,0 +1,74 @@
+﻿@using WebSite.Properties
+@model Models.ViewModels.EditConferenceViewModels.ConferenceViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutForUserManagePage.cshtml";
+}
+
+<h2>@Resources.CreateConferenceHeader</h2>
+@*todo: replace this resources to model.resources*@
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#tabs-1">@Resources.SummaryInfoStabTitle</a></li>
+    <li><a href="#tabs-2">@Resources.EditConference_KeyDates_TabName</a></li>
+    <li><a href="#tabs-3">@Resources.EditConference_ResearchAreas_TabName</a></li>
+    <li><a href="#tabs-4">@Resources.EditConference_OrganizingCommittee_TabName</a></li>
+    <li><a href="#tabs-5">@Resources.EditConference_FilesOfConference_TabName</a></li>
+    <li><a href="#tabs-6">@Resources.EditConference_FormOfParticipation_TabName</a></li>
+    <li><a href="#tabs-7">@Resources.EditConference_FinanceAndRequirements_TabName</a></li>
+</ul>
+
+
+<div class="tab-content .col-sm-12">
+    @Html.HiddenFor(x => x.Summary.ConferenceId)
+    <div class="tab-pane active" id="tabs-1">
+        @Html.Partial("Stabs/_Sab1", Model.Summary)
+    </div>
+    <div class="tab-pane" id="tabs-2">
+        @Html.Partial("Stabs/_Stab2", Model.KeyDatesModel)
+    </div>
+    <div class="tab-pane" id="tabs-3">
+        @Html.Partial("Stabs/_Stab3", Model.ResearchAreas)
+    </div>
+    <div class="tab-pane" id="tabs-4">
+        @Html.Partial("Stabs/_Stab4", Model.OrganizingCommittee)
+    </div>
+    <div class="tab-pane" id="tabs-5">
+        @Html.Partial("Stabs/_Stab5", Model.FilesOfConference)
+    </div>
+    <div class="tab-pane" id="tabs-6">
+        @Html.Partial("Stabs/_Stab6", Model.FormOfParticipation)
+    </div>
+    <div class="tab-pane" id="tabs-7">
+        @Html.Partial("Stabs/_Stab7", Model.FinanceAndLayout)
+    </div>
+</div>
+
+
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+
+
+    //todo: develop!
+    $('#NextStab1').click(function () {
+    });
+
+    function convertDateTime(dateTime) {
+        var newDateTime = dateTime;
+        var dateAndTimeList = newDateTime.split(' ');
+        var dateList = dateAndTimeList[0].split('.');
+        var timeList = dateAndTimeList[1].split(':');
+        return new Date(dateList[2], dateList[1], dateList[0], timeList[0], timeList[1]);
+
+    }
+
+    $(document).ready(function () {
+        $('#datetimepicker1').data('datetimepicker').setDate(convertDateTime('@Model.Summary.StartDate'));
+    });
+</script>
+

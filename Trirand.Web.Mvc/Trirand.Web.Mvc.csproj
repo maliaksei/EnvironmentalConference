@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2AE1ECF7-BD41-4316-BFA0-9D97B6DADBC9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Trirand.Web.Mvc</RootNamespace>
+    <AssemblyName>Trirand.Web.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Linq\Dynamic\ClassFactory.cs" />
+    <Compile Include="System\Linq\Dynamic\DynamicClass.cs" />
+    <Compile Include="System\Linq\Dynamic\DynamicExpression.cs" />
+    <Compile Include="System\Linq\Dynamic\DynamicOrdering.cs" />
+    <Compile Include="System\Linq\Dynamic\DynamicProperty.cs" />
+    <Compile Include="System\Linq\Dynamic\DynamicQueryable.cs" />
+    <Compile Include="System\Linq\Dynamic\ExpressionParser.cs" />
+    <Compile Include="System\Linq\Dynamic\IQueryableUtil!1.cs" />
+    <Compile Include="System\Linq\Dynamic\IQueryableUtil!2.cs" />
+    <Compile Include="System\Linq\Dynamic\ParseException.cs" />
+    <Compile Include="System\Linq\Dynamic\Res.cs" />
+    <Compile Include="System\Linq\Dynamic\Signature.cs" />
+    <Compile Include="AddDialogSettings.cs" />
+    <Compile Include="AjaxCallBackMode.cs" />
+    <Compile Include="AppearanceSettings.cs" />
+    <Compile Include="AutoCompleteDisplayMode.cs" />
+    <Compile Include="AutoCompleteMode.cs" />
+    <Compile Include="ChartAreaSettings.cs" />
+    <Compile Include="ChartAreaSplineSettings.cs" />
+    <Compile Include="ChartAxisType.cs" />
+    <Compile Include="ChartBarSettings.cs" />
+    <Compile Include="ChartBaseAxisSettings.cs" />
+    <Compile Include="ChartClientSideEvents.cs" />
+    <Compile Include="ChartColumnSettings.cs" />
+    <Compile Include="ChartCrossHairSettings.cs" />
+    <Compile Include="ChartDataLabelSettings.cs" />
+    <Compile Include="ChartGradientColor.cs" />
+    <Compile Include="ChartHorizontalAlign.cs" />
+    <Compile Include="ChartLabelSettings.cs" />
+    <Compile Include="ChartLegendLayout.cs" />
+    <Compile Include="ChartLegendSettings.cs" />
+    <Compile Include="ChartLinearGradient.cs" />
+    <Compile Include="ChartLineDashStyle.cs" />
+    <Compile Include="ChartLineSettings.cs" />
+    <Compile Include="ChartMarkerSettings.cs" />
+    <Compile Include="ChartPieSettings.cs" />
+    <Compile Include="ChartPlotLineSettings.cs" />
+    <Compile Include="ChartPlotOptionsClientSideEvents.cs" />
+    <Compile Include="ChartPlotOptionsSettings.cs" />
+    <Compile Include="ChartPoint.cs" />
+    <Compile Include="ChartPointClientSideEvents.cs" />
+    <Compile Include="ChartScatterSettings.cs" />
+    <Compile Include="ChartSeriesPlotSettings.cs" />
+    <Compile Include="ChartSeriesSettings.cs" />
+    <Compile Include="ChartSeriesStacking.cs" />
+    <Compile Include="ChartSplineSettings.cs" />
+    <Compile Include="ChartTitleSettings.cs" />
+    <Compile Include="ChartToolTipSettings.cs" />
+    <Compile Include="ChartType.cs" />
+    <Compile Include="ChartVerticalAlign.cs" />
+    <Compile Include="ChartXAxisSettings.cs" />
+    <Compile Include="ChartYAxisSettings.cs" />
+    <Compile Include="ChartZoomType.cs" />
+    <Compile Include="CheckBoxFormatter.cs" />
+    <Compile Include="ClientSideEvents.cs" />
+    <Compile Include="CompiledOn.cs" />
+    <Compile Include="CurrencyFormatter.cs" />
+    <Compile Include="CustomFormatter.cs" />
+    <Compile Include="CustomValidator.cs" />
+    <Compile Include="DataTypeNotSetException.cs" />
+    <Compile Include="DatePickerDisplayMode.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="DateValidator.cs" />
+    <Compile Include="DeleteDialogSettings.cs" />
+    <Compile Include="DropDownListClientSideEvents.cs" />
+    <Compile Include="EditActionIconsSettings.cs" />
+    <Compile Include="EditDialogSettings.cs" />
+    <Compile Include="EditType.cs" />
+    <Compile Include="EmailFormatter.cs" />
+    <Compile Include="EmailValidator.cs" />
+    <Compile Include="ExportDataRange.cs" />
+    <Compile Include="ExportSettings.cs" />
+    <Compile Include="GridExportSettings.cs" />
+    <Compile Include="GridUtil.cs" />
+    <Compile Include="GroupField.cs" />
+    <Compile Include="GroupSettings.cs" />
+    <Compile Include="GroupSummaryType.cs" />
+    <Compile Include="Guard.cs" />
+    <Compile Include="HashbableExtensions.cs" />
+    <Compile Include="HierarchyMode.cs" />
+    <Compile Include="HierarchySettings.cs" />
+    <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
+    <Compile Include="IntegerFormatter.cs" />
+    <Compile Include="IntegerValidator.cs" />
+    <Compile Include="JQAutoComplete.cs" />
+    <Compile Include="JQAutoCompleteRenderer.cs" />
+    <Compile Include="JQChart.cs" />
+    <Compile Include="JQChartExportData.cs" />
+    <Compile Include="JQChartRenderer.cs" />
+    <Compile Include="JQDatePicker.cs" />
+    <Compile Include="JQDatePickerRenderer.cs" />
+    <Compile Include="JQDropDownList.cs" />
+    <Compile Include="JQDropDownListRenderer.cs" />
+    <Compile Include="JQGrid.cs" />
+    <Compile Include="JQGridColumn.cs" />
+    <Compile Include="JQGridColumnFormatter.cs" />
+    <Compile Include="JQGridDataResolvedEventArgs.cs" />
+    <Compile Include="JQGridDataResolvedEventHandler.cs" />
+    <Compile Include="JQGridEditClientSideValidator.cs" />
+    <Compile Include="JQGridEditData.cs" />
+    <Compile Include="JQGridEditFieldAttribute.cs" />
+    <Compile Include="JQGridHeaderGroup.cs" />
+    <Compile Include="JQGridRenderer.cs" />
+    <Compile Include="JQGridState.cs" />
+    <Compile Include="JQGridToolBarButton.cs" />
+    <Compile Include="JQGridTreeExpandData.cs" />
+    <Compile Include="JQListItem.cs" />
+    <Compile Include="JQMultiSelect.cs" />
+    <Compile Include="JQMultiSelectRenderer.cs" />
+    <Compile Include="JQTreeNode.cs" />
+    <Compile Include="JQTreeNodeDropEventArgs.cs" />
+    <Compile Include="JQTreeView.cs" />
+    <Compile Include="JQTreeViewRenderer.cs" />
+    <Compile Include="JsonAddDialog.cs" />
+    <Compile Include="JsonColModel.cs" />
+    <Compile Include="JsonCustomButton.cs" />
+    <Compile Include="JsonDelDialog.cs" />
+    <Compile Include="JsonEditDialog.cs" />
+    <Compile Include="JsonMultipleSearch.cs" />
+    <Compile Include="JsonResponse.cs" />
+    <Compile Include="JsonRow.cs" />
+    <Compile Include="JsonSearchDialog.cs" />
+    <Compile Include="JsonSearchToolBar.cs" />
+    <Compile Include="JsonToolBar.cs" />
+    <Compile Include="JsonTreeResponse.cs" />
+    <Compile Include="JsonUtil.cs" />
+    <Compile Include="LinkFormatter.cs" />
+    <Compile Include="ListExtensions.cs" />
+    <Compile Include="MaxValueValidator.cs" />
+    <Compile Include="MinValueValidator.cs" />
+    <Compile Include="MultipleSearchRule.cs" />
+    <Compile Include="MultiSelectClientSideEvents.cs" />
+    <Compile Include="MultiSelectKey.cs" />
+    <Compile Include="MultiSelectMode.cs" />
+    <Compile Include="NumberFormatter.cs" />
+    <Compile Include="NumberValidator.cs" />
+    <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="PagerSettings.cs" />
+    <Compile Include="PublicListExtensions.cs" />
+    <Compile Include="RenderingMode.cs" />
+    <Compile Include="RequiredValidator.cs" />
+    <Compile Include="SearchDataType.cs" />
+    <Compile Include="SearchDialogSettings.cs" />
+    <Compile Include="SearchOperation.cs" />
+    <Compile Include="SearchToolBarAction.cs" />
+    <Compile Include="SearchToolBarSettings.cs" />
+    <Compile Include="SearchType.cs" />
+    <Compile Include="ShowOn.cs" />
+    <Compile Include="SortAction.cs" />
+    <Compile Include="SortDirection.cs" />
+    <Compile Include="SortIconsPosition.cs" />
+    <Compile Include="SortSettings.cs" />
+    <Compile Include="StringBuilderExtensions.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="TextAlign.cs" />
+    <Compile Include="TickmarkPlacement.cs" />
+    <Compile Include="TimeValidator.cs" />
+    <Compile Include="ToolBarAlign.cs" />
+    <Compile Include="ToolBarButtonPosition.cs" />
+    <Compile Include="ToolBarPosition.cs" />
+    <Compile Include="ToolBarSettings.cs" />
+    <Compile Include="TreeGridSettings.cs" />
+    <Compile Include="TreeViewClientSideEvents.cs" />
+    <Compile Include="TrirandNamespace.cs" />
+    <Compile Include="UrlValidator.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
