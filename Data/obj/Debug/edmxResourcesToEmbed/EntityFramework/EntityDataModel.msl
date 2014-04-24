@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBaseModelStoreContainer" CdmEntityContainer="DataBaseEntities">
+    <EntitySetMapping Name="AnswersQuestions">
+      <EntityTypeMapping TypeName="DataBaseModel.AnswersQuestions">
+        <MappingFragment StoreEntitySet="AnswersQuestions">
+          <ScalarProperty Name="AnswerQuestionId" ColumnName="AnswerQuestionId" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="AnswerDateTime" ColumnName="AnswerDateTime" />
+          <ScalarProperty Name="QuestionDateTime" ColumnName="QuestionDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Application">
+      <EntityTypeMapping TypeName="DataBaseModel.Application">
+        <MappingFragment StoreEntitySet="Application">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="IsHotel" ColumnName="IsHotel" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ParticipationFormId" ColumnName="ParticipationFormId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Check">
+      <EntityTypeMapping TypeName="DataBaseModel.Check">
+        <MappingFragment StoreEntitySet="Check">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CheckId" ColumnName="CheckId" />
+          <ScalarProperty Name="PathCheck" ColumnName="PathCheck" />
+          <ScalarProperty Name="TimePayment" ColumnName="TimePayment" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConferenceForms">
+      <EntityTypeMapping TypeName="DataBaseModel.ConferenceForms">
+        <MappingFragment StoreEntitySet="ConferenceForms">
+          <ScalarProperty Name="ConferenceFormId" ColumnName="ConferenceFormId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="ParticipationFormId" ColumnName="ParticipationFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conferences">
+      <EntityTypeMapping TypeName="DataBaseModel.Conferences">
+        <MappingFragment StoreEntitySet="Conferences">
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BriefInformation" ColumnName="BriefInformation" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="MeetingPoint" ColumnName="MeetingPoint" />
+          <ScalarProperty Name="ConditionsOfParticipation" ColumnName="ConditionsOfParticipation" />
+          <ScalarProperty Name="ArrangementFee" ColumnName="ArrangementFee" />
+          <ScalarProperty Name="FinancialConditions" ColumnName="FinancialConditions" />
+          <ScalarProperty Name="RequirementsForTheMaterials" ColumnName="RequirementsForTheMaterials" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConferenceStatus">
+      <EntityTypeMapping TypeName="DataBaseModel.ConferenceStatus">
+        <MappingFragment StoreEntitySet="ConferenceStatus">
+          <ScalarProperty Name="ConferenceStatusId" ColumnName="ConferenceStatusId" />
+          <ScalarProperty Name="StatusesId" ColumnName="StatusesId" />
+          <ScalarProperty Name="DateChange" ColumnName="DateChange" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FilesConference">
+      <EntityTypeMapping TypeName="DataBaseModel.FilesConference">
+        <MappingFragment StoreEntitySet="FilesConference">
+          <ScalarProperty Name="FileConferenceId" ColumnName="FileConferenceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeyDates">
+      <EntityTypeMapping TypeName="DataBaseModel.KeyDates">
+        <MappingFragment StoreEntitySet="KeyDates">
+          <ScalarProperty Name="KeyDateId" ColumnName="KeyDateId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="DataBaseModel.Languages">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="LanguagesId" ColumnName="LanguagesId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguagesConference">
+      <EntityTypeMapping TypeName="DataBaseModel.LanguagesConference">
+        <MappingFragment StoreEntitySet="LanguagesConference">
+          <ScalarProperty Name="LanguagesConferenceId" ColumnName="LanguagesConferenceId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="LanguagesId" ColumnName="LanguagesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="DataBaseModel.Messages">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizingCommittee">
+      <EntityTypeMapping TypeName="DataBaseModel.OrganizingCommittee">
+        <MappingFragment StoreEntitySet="OrganizingCommittee">
+          <ScalarProperty Name="OrganizingCommitteeId" ColumnName="OrganizingCommitteeId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizingCommitteeMembers">
+      <EntityTypeMapping TypeName="DataBaseModel.OrganizingCommitteeMembers">
+        <MappingFragment StoreEntitySet="OrganizingCommitteeMembers">
+          <ScalarProperty Name="OrganizingCommitteeMemberId" ColumnName="OrganizingCommitteeMemberId" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
+          <ScalarProperty Name="OrganizingCommitteeId" ColumnName="OrganizingCommitteeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipationForms">
+      <EntityTypeMapping TypeName="DataBaseModel.ParticipationForms">
+        <MappingFragment StoreEntitySet="ParticipationForms">
+          <ScalarProperty Name="ParticipationFormId" ColumnName="ParticipationFormId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report">
+      <EntityTypeMapping TypeName="DataBaseModel.Report">
+        <MappingFragment StoreEntitySet="Report">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="NameReport" ColumnName="NameReport" />
+          <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+          <ScalarProperty Name="Collaborators" ColumnName="Collaborators" />
+          <ScalarProperty Name="PathReport" ColumnName="PathReport" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchAreas">
+      <EntityTypeMapping TypeName="DataBaseModel.ResearchAreas">
+        <MappingFragment StoreEntitySet="ResearchAreas">
+          <ScalarProperty Name="ResearchAreasId" ColumnName="ResearchAreasId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateAndTime" ColumnName="DateAndTime" />
+          <ScalarProperty Name="Venue" ColumnName="Venue" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statuses">
+      <EntityTypeMapping TypeName="DataBaseModel.Statuses">
+        <MappingFragment StoreEntitySet="Statuses">
+          <ScalarProperty Name="StatusesId" ColumnName="StatusesId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DataBaseModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="DataBaseModel.UserRoles">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DataBaseModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="AcademicDegree" ColumnName="AcademicDegree" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AcademicTitle" ColumnName="AcademicTitle" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersMessages">
+      <EntityTypeMapping TypeName="DataBaseModel.UsersMessages">
+        <MappingFragment StoreEntitySet="UsersMessages">
+          <ScalarProperty Name="UserMessageId" ColumnName="UserMessageId" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckStatus">
+      <EntityTypeMapping TypeName="DataBaseModel.CheckStatus">
+        <MappingFragment StoreEntitySet="CheckStatus">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CheckStatusId" ColumnName="CheckStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

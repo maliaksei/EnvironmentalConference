@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="AcademicDegree" xml:space="preserve">
+    <value>Ученая степень</value>
+  </data>
+  <data name="AcademicTitle" xml:space="preserve">
+    <value>Ученое звание</value>
+  </data>
+  <data name="AccountTitle" xml:space="preserve">
+    <value>Аккаунт пользователя</value>
+  </data>
+  <data name="ActiveApplicationInfoViewModel_ArrivalTime" xml:space="preserve">
+    <value>Примерное время прибытия</value>
+  </data>
+  <data name="ActiveApplicationInfoViewModel_Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="ActiveApplicationInfoViewModel_IsHotel" xml:space="preserve">
+    <value>Необходимость бронирования гостиницы</value>
+  </data>
+  <data name="ActiveApplicationInfoViewModel_ParticipationFormId" xml:space="preserve">
+    <value>Форма участия</value>
+  </data>
+  <data name="ActiveConference_Header" xml:space="preserve">
+    <value>Активные конференции</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="ApplicationOtherData_Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="ApplicationOtherData_EstimatedTimeOfArrival" xml:space="preserve">
+    <value>Примерное время прибытия</value>
+  </data>
+  <data name="ApplicationOtherData_FormOfParticipation" xml:space="preserve">
+    <value>Форма участия (указать)</value>
+  </data>
+  <data name="ApplicationOtherData_NeedForReservation" xml:space="preserve">
+    <value>Необходимость бронирования гостиницы</value>
+  </data>
+  <data name="ArrangementFee_Header" xml:space="preserve">
+    <value>Организационный взнос</value>
+  </data>
+  <data name="Button_Apply" xml:space="preserve">
+    <value>Подать заявку</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="ChangePasswordButton" xml:space="preserve">
+    <value>Изменить пароль</value>
+  </data>
+  <data name="ConditionsOfParticipation_Header" xml:space="preserve">
+    <value>Условия участия</value>
+  </data>
+  <data name="ConferenceSummaryInfoViewModel_BriefInformation" xml:space="preserve">
+    <value>Краткая информация</value>
+  </data>
+  <data name="ConferenceSummaryInfoViewModel_MeetingPoint" xml:space="preserve">
+    <value>Место проведения</value>
+  </data>
+  <data name="ConferenceSummaryInfoViewModel_NameOfConference" xml:space="preserve">
+    <value>Название конференции</value>
+  </data>
+  <data name="ConferenceSummaryInfoViewModel_ParticipationForms" xml:space="preserve">
+    <value>Формы участия</value>
+  </data>
+  <data name="ConferenceSummaryInfoViewModel_StartDate" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="CreateAnReportBytton" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="CreateConferenceButton" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="CreateConferenceHeader" xml:space="preserve">
+    <value>Создание конференции</value>
+  </data>
+  <data name="DetailsOfTheConferenceViewModel_RegisterButton" xml:space="preserve">
+    <value>Зарегистрироваться на конференцию</value>
+  </data>
+  <data name="DontHaveLocalAccountText" xml:space="preserve">
+    <value>если у вас нет учетной записи</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailAdressNotValid" xml:space="preserve">
+    <value>Поле Email не является допустимым адресом электронной почты. </value>
+  </data>
+  <data name="FieldLong" xml:space="preserve">
+    <value>Длинна пароля не должна первышать {1} символов</value>
+  </data>
+  <data name="FieldMinLong" xml:space="preserve">
+    <value>'{0}' не может быть короче {2} символов.</value>
+  </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>'{0}' не может быть пустым</value>
+  </data>
+  <data name="FilesOfConferenceJqGridModel_Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="FilesOfConferenceJqGridModel_Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="FilesOfConferenceJqGridModel_Path" xml:space="preserve">
+    <value>Путь к файлу</value>
+  </data>
+  <data name="FinancialConditions_Header" xml:space="preserve">
+    <value>Финансовые условия</value>
+  </data>
+  <data name="FormOfParticipation_FormOfParticipationName" xml:space="preserve">
+    <value>Формы участия в конференции</value>
+  </data>
+  <data name="HelloOneText" xml:space="preserve">
+    <value>Привет</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Домой</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Сайт регистрации на конференцию</value>
+  </data>
+  <data name="KeyDates_DateId" xml:space="preserve">
+    <value>№</value>
+  </data>
+  <data name="KeyDates_Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="KeyDates_EndDate" xml:space="preserve">
+    <value>Дата окончания</value>
+  </data>
+  <data name="KeyDates_StartDate" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="LanguagesConference_LanguageName" xml:space="preserve">
+    <value>Официальные языки</value>
+  </data>
+  <data name="LearnMore_Button" xml:space="preserve">
+    <value>Подробно</value>
+  </data>
+  <data name="LocalAccountToLogInText" xml:space="preserve">
+    <value>Используйте локальную учетную запись для входа в систему.</value>
+  </data>
+  <data name="LogInBarName" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="LogInMessage" xml:space="preserve">
+    <value>Вы вошли в систему как</value>
+  </data>
+  <data name="LogInTitle" xml:space="preserve">
+    <value>Страница авторизации </value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="NextButtonName" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Старый пароль</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Организация</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_AdditionalInformation" xml:space="preserve">
+    <value>Дополнительная информация</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_FullName" xml:space="preserve">
+    <value>ФИО</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_IndexNumber" xml:space="preserve">
+    <value>№</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_Patronymic" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_Post" xml:space="preserve">
+    <value>Должности</value>
+  </data>
+  <data name="OrganizingCommitteeMembers_Surname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="OrganizingCommittee_Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="OrganizingCommittee_ContactInformation" xml:space="preserve">
+    <value>Контактная информация</value>
+  </data>
+  <data name="OrganizingCommittee_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="OrganizingCommittee_Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="OrganizingCommittee_SuccessMessage" xml:space="preserve">
+    <value>Данные успешно сохранены</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordCompare" xml:space="preserve">
+    <value>'{0}' и '{1}' не совпадают</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="PersonalInfo_Headrr" xml:space="preserve">
+    <value>Личная информация</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="RegisterBarName" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="RegisterForConference_Stab1" xml:space="preserve">
+    <value>Доклады</value>
+  </data>
+  <data name="RegisterForConference_Stab2" xml:space="preserve">
+    <value>Форма участия и гостиница</value>
+  </data>
+  <data name="RegisterLabel" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Регистрация нового пользователя</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить меня</value>
+  </data>
+  <data name="RequirementsForRegistration_Header" xml:space="preserve">
+    <value>Требования к оформлению материалов</value>
+  </data>
+  <data name="ResearchAreas_AddResearch_Button" xml:space="preserve">
+    <value>Добавить доклад</value>
+  </data>
+  <data name="ResearchAreas_AuthorsReport" xml:space="preserve">
+    <value>Авторы доклада</value>
+  </data>
+  <data name="ResearchAreas_DateTime" xml:space="preserve">
+    <value>Дата проведения</value>
+  </data>
+  <data name="ResearchAreas_Description" xml:space="preserve">
+    <value>Краткая информация</value>
+  </data>
+  <data name="ResearchAreas_IndexNumber" xml:space="preserve">
+    <value>№</value>
+  </data>
+  <data name="ResearchAreas_Name" xml:space="preserve">
+    <value>Название секции</value>
+  </data>
+  <data name="ResearchAreas_NameOfReport" xml:space="preserve">
+    <value>Название конференции</value>
+  </data>
+  <data name="ResearchAreas_PathToCheck" xml:space="preserve">
+    <value>Наличие чека</value>
+  </data>
+  <data name="ResearchAreas_PathToReport" xml:space="preserve">
+    <value>Наличие доклада</value>
+  </data>
+  <data name="ResearchAreas_Venue" xml:space="preserve">
+    <value>Место проведения</value>
+  </data>
+  <data name="SaveButtonName" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SummaryInfoStabTitle" xml:space="preserve">
+    <value>Основная информация</value>
+  </data>
+  <data name="Summary_BriefInformation" xml:space="preserve">
+    <value>Краткая информация</value>
+  </data>
+  <data name="Summary_NameOfTheConference" xml:space="preserve">
+    <value>Название конференции</value>
+  </data>
+  <data name="Summary_StartDate" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="Summary_Venue" xml:space="preserve">
+    <value>Место проведения</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="UserAccount_Header" xml:space="preserve">
+    <value>Аккаунт пользователя</value>
+  </data>
+  <data name="UserReportsViewModel_AuthorsReport" xml:space="preserve">
+    <value>Авторы доклада</value>
+  </data>
+  <data name="UserReportsViewModel_NameOfReport" xml:space="preserve">
+    <value>Название доклада</value>
+  </data>
+  <data name="UserReportsViewModel_PathToCheck" xml:space="preserve">
+    <value>Чек</value>
+  </data>
+  <data name="UserReportsViewModel_PathToReport" xml:space="preserve">
+    <value>Доклад</value>
+  </data>
+  <data name="UserReportsViewModel_ResearchAreas" xml:space="preserve">
+    <value>Направление конференции</value>
+  </data>
+</root>

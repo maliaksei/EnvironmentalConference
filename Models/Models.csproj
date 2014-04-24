@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36E35ECC-07CB-46DB-9784-91EC074E95B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JqGridModels\ParticipantsConferenceJqGridModel.cs" />
+    <Compile Include="JqGridModels\LanguagesConferenceJqGridModel.cs" />
+    <Compile Include="JqGridModels\FormOfParticipationJqGridModel.cs" />
+    <Compile Include="JqGridModels\KeyDatesJqGridModel.cs" />
+    <Compile Include="JqGridModels\OrganizingCommitteeMembersJqGridModel.cs" />
+    <Compile Include="JqGridModels\UserReportsJqGridModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.ru.Designer.cs">
+      <DependentUpon>Resources.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AdminAccount\DetailsInfoForAdminAccount.cs" />
+    <Compile Include="ViewModels\PersonalInfoViewModel.cs" />
+    <Compile Include="ViewModels\UserAccount\UserInfoViewModel.cs" />
+    <Compile Include="ViewModels\DetailsOfTheConferenceViewModel.cs" />
+    <Compile Include="ViewModels\RegisterForConference\RegisterForConferenceOtherDataViewModel.cs" />
+    <Compile Include="ViewModels\RegisterForConference\RegisterForConferenceViewModel.cs" />
+    <Compile Include="ViewModels\RegisterForConference\UserReportsViewModel.cs" />
+    <Compile Include="ViewModels\SummaryForActiveConferenceViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\ConferenceViewModel.cs" />
+    <Compile Include="JqGridModels\ResearchAreasJqGridModel.cs" />
+    <Compile Include="JqGridModels\FilesOfConferenceJqGridModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\FilesOfConferenceViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\FinanceAndLayoutViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\LanguagesConferenceEditJsonModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\FormOfParticipationEditJsonModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\FormOfParticipationViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\KeyDatesViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\OrganizingCommitteeViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\OrganizingCommitteeMembersViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\ResearchAreasViewModel.cs" />
+    <Compile Include="ViewModels\EditConferenceViewModels\SummaryViewModel.cs" />
+    <Compile Include="ViewModels\UserAccount\SummaryApplicationInfoViewModel.cs" />
+    <Compile Include="ViewModels\UserAccount\ConferenceSummaryInfoViewModel.cs" />
+    <Compile Include="ViewModels\UserAccount\DetailsInfoForRegisterConferenceViewModel.cs" />
+    <Compile Include="ViewModels\UserAccount\QuestionViewModel.cs" />
+    <Compile Include="ViewModels\ViewActiveConferencesViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{281bf724-6f90-442f-b655-90240a9498a1}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{8ca0f5a8-5d64-41b3-99f4-af1c0ec8955c}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trirand.Web.Mvc\Trirand.Web.Mvc.csproj">
+      <Project>{2ae1ecf7-bd41-4316-bfa0-9d97b6dadbc9}</Project>
+      <Name>Trirand.Web.Mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
+      <Link>AutoMapper.Net4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

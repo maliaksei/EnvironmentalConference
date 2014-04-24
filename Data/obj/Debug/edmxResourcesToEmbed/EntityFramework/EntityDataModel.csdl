@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AnswersQuestions">
+    <Key>
+      <PropertyRef Name="AnswerQuestionId" />
+    </Key>
+    <Property Name="AnswerQuestionId" Type="Guid" Nullable="false" />
+    <Property Name="Answer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Question" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" />
+    <Property Name="AnswerDateTime" Type="DateTime" Precision="3" />
+    <Property Name="QuestionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_AnswersQuestions_Application" FromRole="AnswersQuestions" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="IsHotel" Type="Boolean" />
+    <Property Name="ArrivalTime" Type="DateTime" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ParticipationFormId" Type="Int32" Nullable="false" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="AnswersQuestions" Relationship="Self.FK_AnswersQuestions_Application" FromRole="Application" ToRole="AnswersQuestions" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_Application_Conferences" FromRole="Application" ToRole="Conferences" />
+    <NavigationProperty Name="ParticipationForms" Relationship="Self.FK_Application_ParticipationForms" FromRole="Application" ToRole="ParticipationForms" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Application_Users" FromRole="Application" ToRole="Users" />
+    <NavigationProperty Name="Report" Relationship="Self.FK_Report_Application" FromRole="Application" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="Check">
+    <Key>
+      <PropertyRef Name="CheckId" />
+    </Key>
+    <Property Name="CheckId" Type="Guid" Nullable="false" />
+    <Property Name="PathCheck" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TimePayment" Type="DateTime" Precision="3" />
+    <Property Name="PaymentAmount" Type="Double" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="ReportId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Report" Relationship="DataBaseModel.FK_Check_Report" FromRole="Check" ToRole="Report" />
+    <NavigationProperty Name="CheckStatus" Relationship="DataBaseModel.FK_Check_CheckStatus" FromRole="Check" ToRole="CheckStatus" />
+  </EntityType>
+  <EntityType Name="ConferenceForms">
+    <Key>
+      <PropertyRef Name="ConferenceFormId" />
+    </Key>
+    <Property Name="ConferenceFormId" Type="Int32" Nullable="false" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <Property Name="ParticipationFormId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_ConferenceForms_Conferences" FromRole="ConferenceForms" ToRole="Conferences" />
+    <NavigationProperty Name="ParticipationForms" Relationship="Self.FK_ConferenceForms_ParticipationForms" FromRole="ConferenceForms" ToRole="ParticipationForms" />
+  </EntityType>
+  <EntityType Name="Conferences">
+    <Key>
+      <PropertyRef Name="ConferenceId" />
+    </Key>
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BriefInformation" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MeetingPoint" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConditionsOfParticipation" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="ArrangementFee" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialConditions" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="RequirementsForTheMaterials" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Application_Conferences" FromRole="Conferences" ToRole="Application" />
+    <NavigationProperty Name="ConferenceForms" Relationship="Self.FK_ConferenceForms_Conferences" FromRole="Conferences" ToRole="ConferenceForms" />
+    <NavigationProperty Name="ConferenceStatus" Relationship="Self.FK_Conferences_ConferenceStatus" FromRole="Conferences" ToRole="ConferenceStatus" />
+    <NavigationProperty Name="FilesConference" Relationship="Self.FK_FilesConference_Conferences1" FromRole="Conferences" ToRole="FilesConference" />
+    <NavigationProperty Name="KeyDates" Relationship="Self.FK_KeyDates_Conferences1" FromRole="Conferences" ToRole="KeyDates" />
+    <NavigationProperty Name="LanguagesConference" Relationship="Self.FK_LanguagesConference_Conferences1" FromRole="Conferences" ToRole="LanguagesConference" />
+    <NavigationProperty Name="Messages" Relationship="Self.FK_Messages_Conferences1" FromRole="Conferences" ToRole="Messages" />
+    <NavigationProperty Name="OrganizingCommittee" Relationship="Self.FK_OrganizingCommittee_Conferences1" FromRole="Conferences" ToRole="OrganizingCommittee" />
+    <NavigationProperty Name="ResearchAreas" Relationship="Self.FK_ResearchAreas_Conferences1" FromRole="Conferences" ToRole="ResearchAreas" />
+  </EntityType>
+  <EntityType Name="ConferenceStatus">
+    <Key>
+      <PropertyRef Name="ConferenceStatusId" />
+    </Key>
+    <Property Name="ConferenceStatusId" Type="Guid" Nullable="false" />
+    <Property Name="StatusesId" Type="Int32" Nullable="false" />
+    <Property Name="DateChange" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_Conferences_ConferenceStatus" FromRole="ConferenceStatus" ToRole="Conferences" />
+    <NavigationProperty Name="Statuses" Relationship="Self.FK_ConferenceStatus_Statuses" FromRole="ConferenceStatus" ToRole="Statuses" />
+  </EntityType>
+  <EntityType Name="FilesConference">
+    <Key>
+      <PropertyRef Name="FileConferenceId" />
+    </Key>
+    <Property Name="FileConferenceId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ConferenceId" Type="Int32" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_FilesConference_Conferences1" FromRole="FilesConference" ToRole="Conferences" />
+  </EntityType>
+  <EntityType Name="KeyDates">
+    <Key>
+      <PropertyRef Name="KeyDateId" />
+    </Key>
+    <Property Name="KeyDateId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_KeyDates_Conferences1" FromRole="KeyDates" ToRole="Conferences" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="LanguagesId" />
+    </Key>
+    <Property Name="LanguagesId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="LanguagesConference" Relationship="Self.FK_LanguagesConference_Languages1" FromRole="Languages" ToRole="LanguagesConference" />
+  </EntityType>
+  <EntityType Name="LanguagesConference">
+    <Key>
+      <PropertyRef Name="LanguagesConferenceId" />
+    </Key>
+    <Property Name="LanguagesConferenceId" Type="Guid" Nullable="false" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <Property Name="LanguagesId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_LanguagesConference_Conferences1" FromRole="LanguagesConference" ToRole="Conferences" />
+    <NavigationProperty Name="Languages" Relationship="Self.FK_LanguagesConference_Languages1" FromRole="LanguagesConference" ToRole="Languages" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Guid" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_Messages_Conferences1" FromRole="Messages" ToRole="Conferences" />
+    <NavigationProperty Name="UsersMessages" Relationship="Self.FK_UsersMessages_Messages1" FromRole="Messages" ToRole="UsersMessages" />
+  </EntityType>
+  <EntityType Name="OrganizingCommittee">
+    <Key>
+      <PropertyRef Name="OrganizingCommitteeId" />
+    </Key>
+    <Property Name="OrganizingCommitteeId" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_OrganizingCommittee_Conferences1" FromRole="OrganizingCommittee" ToRole="Conferences" />
+    <NavigationProperty Name="OrganizingCommitteeMembers" Relationship="Self.FK_OrganizingCommitteeMembers_OrganizingCommittee1" FromRole="OrganizingCommittee" ToRole="OrganizingCommitteeMembers" />
+  </EntityType>
+  <EntityType Name="OrganizingCommitteeMembers">
+    <Key>
+      <PropertyRef Name="OrganizingCommitteeMemberId" />
+    </Key>
+    <Property Name="OrganizingCommitteeMemberId" Type="Guid" Nullable="false" />
+    <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalInformation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OrganizingCommitteeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrganizingCommittee" Relationship="Self.FK_OrganizingCommitteeMembers_OrganizingCommittee1" FromRole="OrganizingCommitteeMembers" ToRole="OrganizingCommittee" />
+  </EntityType>
+  <EntityType Name="ParticipationForms">
+    <Key>
+      <PropertyRef Name="ParticipationFormId" />
+    </Key>
+    <Property Name="ParticipationFormId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Application_ParticipationForms" FromRole="ParticipationForms" ToRole="Application" />
+    <NavigationProperty Name="ConferenceForms" Relationship="Self.FK_ConferenceForms_ParticipationForms" FromRole="ParticipationForms" ToRole="ConferenceForms" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="Guid" Nullable="false" />
+    <Property Name="NameReport" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Collaborators" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="PathReport" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Report_Application" FromRole="Report" ToRole="Application" />
+    <NavigationProperty Name="Check" Relationship="DataBaseModel.FK_Check_Report" FromRole="Report" ToRole="Check" />
+  </EntityType>
+  <EntityType Name="ResearchAreas">
+    <Key>
+      <PropertyRef Name="ResearchAreasId" />
+    </Key>
+    <Property Name="ResearchAreasId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateAndTime" Type="DateTime" Precision="3" />
+    <Property Name="Venue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conferences" Relationship="Self.FK_ResearchAreas_Conferences1" FromRole="ResearchAreas" ToRole="Conferences" />
+  </EntityType>
+  <EntityType Name="Statuses">
+    <Key>
+      <PropertyRef Name="StatusesId" />
+    </Key>
+    <Property Name="StatusesId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ConferenceStatus" Relationship="Self.FK_ConferenceStatus_Statuses" FromRole="Statuses" ToRole="ConferenceStatus" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserRoles1" FromRole="UserRoles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AcademicDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AcademicTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Application_Users" FromRole="Users" ToRole="Application" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_Users_UserRoles1" FromRole="Users" ToRole="UserRoles" />
+    <NavigationProperty Name="UsersMessages" Relationship="Self.FK_UsersMessages_Users1" FromRole="Users" ToRole="UsersMessages" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UsersMessages">
+    <Key>
+      <PropertyRef Name="UserMessageId" />
+    </Key>
+    <Property Name="UserMessageId" Type="Guid" Nullable="false" />
+    <Property Name="MessageId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Messages" Relationship="Self.FK_UsersMessages_Messages1" FromRole="UsersMessages" ToRole="Messages" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_UsersMessages_Users1" FromRole="UsersMessages" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_AnswersQuestions_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+    <End Role="AnswersQuestions" Type="Self.AnswersQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="AnswersQuestions">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Conferences">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_ParticipationForms">
+    <End Role="ParticipationForms" Type="Self.ParticipationForms" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipationForms">
+        <PropertyRef Name="ParticipationFormId" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ParticipationFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceForms_Conferences">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="ConferenceForms" Type="Self.ConferenceForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="ConferenceForms">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceForms_ParticipationForms">
+    <End Role="ParticipationForms" Type="Self.ParticipationForms" Multiplicity="1" />
+    <End Role="ConferenceForms" Type="Self.ConferenceForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipationForms">
+        <PropertyRef Name="ParticipationFormId" />
+      </Principal>
+      <Dependent Role="ConferenceForms">
+        <PropertyRef Name="ParticipationFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Conferences_ConferenceStatus">
+    <End Role="ConferenceStatus" Type="Self.ConferenceStatus" Multiplicity="1" />
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConferenceStatus">
+        <PropertyRef Name="ConferenceStatusId" />
+      </Principal>
+      <Dependent Role="Conferences">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FilesConference_Conferences1">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="0..1" />
+    <End Role="FilesConference" Type="Self.FilesConference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="FilesConference">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeyDates_Conferences1">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="KeyDates" Type="Self.KeyDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="KeyDates">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguagesConference_Conferences1">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="LanguagesConference" Type="Self.LanguagesConference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="LanguagesConference">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_Conferences1">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganizingCommittee_Conferences1">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="OrganizingCommittee" Type="Self.OrganizingCommittee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="OrganizingCommittee">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchAreas_Conferences1">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="ResearchAreas" Type="Self.ResearchAreas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="ResearchAreas">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceStatus_Statuses">
+    <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+    <End Role="ConferenceStatus" Type="Self.ConferenceStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="StatusesId" />
+      </Principal>
+      <Dependent Role="ConferenceStatus">
+        <PropertyRef Name="StatusesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguagesConference_Languages1">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="LanguagesConference" Type="Self.LanguagesConference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguagesId" />
+      </Principal>
+      <Dependent Role="LanguagesConference">
+        <PropertyRef Name="LanguagesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersMessages_Messages1">
+    <End Role="Messages" Type="Self.Messages" Multiplicity="1" />
+    <End Role="UsersMessages" Type="Self.UsersMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Messages">
+        <PropertyRef Name="MessageId" />
+      </Principal>
+      <Dependent Role="UsersMessages">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganizingCommitteeMembers_OrganizingCommittee1">
+    <End Role="OrganizingCommittee" Type="Self.OrganizingCommittee" Multiplicity="1" />
+    <End Role="OrganizingCommitteeMembers" Type="Self.OrganizingCommitteeMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrganizingCommittee">
+        <PropertyRef Name="OrganizingCommitteeId" />
+      </Principal>
+      <Dependent Role="OrganizingCommitteeMembers">
+        <PropertyRef Name="OrganizingCommitteeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRoles1">
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRoles">
+        <PropertyRef Name="UserRoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersMessages_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersMessages" Type="Self.UsersMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UsersMessages">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataBaseEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="AnswersQuestions" EntityType="Self.AnswersQuestions" />
+    <EntitySet Name="Application" EntityType="Self.Application" />
+    <EntitySet Name="Check" EntityType="Self.Check" />
+    <EntitySet Name="ConferenceForms" EntityType="Self.ConferenceForms" />
+    <EntitySet Name="Conferences" EntityType="Self.Conferences" />
+    <EntitySet Name="ConferenceStatus" EntityType="Self.ConferenceStatus" />
+    <EntitySet Name="FilesConference" EntityType="Self.FilesConference" />
+    <EntitySet Name="KeyDates" EntityType="Self.KeyDates" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" />
+    <EntitySet Name="LanguagesConference" EntityType="Self.LanguagesConference" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" />
+    <EntitySet Name="OrganizingCommittee" EntityType="Self.OrganizingCommittee" />
+    <EntitySet Name="OrganizingCommitteeMembers" EntityType="Self.OrganizingCommitteeMembers" />
+    <EntitySet Name="ParticipationForms" EntityType="Self.ParticipationForms" />
+    <EntitySet Name="Report" EntityType="Self.Report" />
+    <EntitySet Name="ResearchAreas" EntityType="Self.ResearchAreas" />
+    <EntitySet Name="Statuses" EntityType="Self.Statuses" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="UsersMessages" EntityType="Self.UsersMessages" />
+    <AssociationSet Name="FK_AnswersQuestions_Application" Association="Self.FK_AnswersQuestions_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="AnswersQuestions" EntitySet="AnswersQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Conferences" Association="Self.FK_Application_Conferences">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_ParticipationForms" Association="Self.FK_Application_ParticipationForms">
+      <End Role="ParticipationForms" EntitySet="ParticipationForms" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Users" Association="Self.FK_Application_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_Application" Association="Self.FK_Report_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceForms_Conferences" Association="Self.FK_ConferenceForms_Conferences">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="ConferenceForms" EntitySet="ConferenceForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceForms_ParticipationForms" Association="Self.FK_ConferenceForms_ParticipationForms">
+      <End Role="ParticipationForms" EntitySet="ParticipationForms" />
+      <End Role="ConferenceForms" EntitySet="ConferenceForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Conferences_ConferenceStatus" Association="Self.FK_Conferences_ConferenceStatus">
+      <End Role="ConferenceStatus" EntitySet="ConferenceStatus" />
+      <End Role="Conferences" EntitySet="Conferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FilesConference_Conferences1" Association="Self.FK_FilesConference_Conferences1">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="FilesConference" EntitySet="FilesConference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeyDates_Conferences1" Association="Self.FK_KeyDates_Conferences1">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="KeyDates" EntitySet="KeyDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguagesConference_Conferences1" Association="Self.FK_LanguagesConference_Conferences1">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="LanguagesConference" EntitySet="LanguagesConference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_Conferences1" Association="Self.FK_Messages_Conferences1">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganizingCommittee_Conferences1" Association="Self.FK_OrganizingCommittee_Conferences1">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="OrganizingCommittee" EntitySet="OrganizingCommittee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchAreas_Conferences1" Association="Self.FK_ResearchAreas_Conferences1">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="ResearchAreas" EntitySet="ResearchAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceStatus_Statuses" Association="Self.FK_ConferenceStatus_Statuses">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="ConferenceStatus" EntitySet="ConferenceStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguagesConference_Languages1" Association="Self.FK_LanguagesConference_Languages1">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="LanguagesConference" EntitySet="LanguagesConference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersMessages_Messages1" Association="Self.FK_UsersMessages_Messages1">
+      <End Role="Messages" EntitySet="Messages" />
+      <End Role="UsersMessages" EntitySet="UsersMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganizingCommitteeMembers_OrganizingCommittee1" Association="Self.FK_OrganizingCommitteeMembers_OrganizingCommittee1">
+      <End Role="OrganizingCommittee" EntitySet="OrganizingCommittee" />
+      <End Role="OrganizingCommitteeMembers" EntitySet="OrganizingCommitteeMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRoles1" Association="Self.FK_Users_UserRoles1">
+      <End Role="UserRoles" EntitySet="UserRoles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersMessages_Users1" Association="Self.FK_UsersMessages_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersMessages" EntitySet="UsersMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Check_Report" Association="DataBaseModel.FK_Check_Report">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Check" EntitySet="Check" />
+    </AssociationSet>
+    <EntitySet Name="CheckStatus" EntityType="DataBaseModel.CheckStatus" />
+    <AssociationSet Name="FK_Check_CheckStatus" Association="DataBaseModel.FK_Check_CheckStatus">
+      <End Role="CheckStatus" EntitySet="CheckStatus" />
+      <End Role="Check" EntitySet="Check" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Check_Report">
+    <End Type="DataBaseModel.Report" Role="Report" Multiplicity="1" />
+    <End Type="DataBaseModel.Check" Role="Check" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="ReportId" />
+      </Principal>
+      <Dependent Role="Check">
+        <PropertyRef Name="ReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CheckStatus">
+    <Key>
+      <PropertyRef Name="CheckStatusId" />
+    </Key>
+    <Property Name="CheckStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Check" Relationship="DataBaseModel.FK_Check_CheckStatus" FromRole="CheckStatus" ToRole="Check" />
+  </EntityType>
+  <Association Name="FK_Check_CheckStatus">
+    <End Type="DataBaseModel.CheckStatus" Role="CheckStatus" Multiplicity="1" />
+    <End Type="DataBaseModel.Check" Role="Check" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckStatus">
+        <PropertyRef Name="CheckStatusId" />
+      </Principal>
+      <Dependent Role="Check">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

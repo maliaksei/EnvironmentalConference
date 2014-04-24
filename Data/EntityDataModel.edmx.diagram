@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c9bacd6d0c74fc3900df0493254c835" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="DiplomModel.sysdiagrams" PointX="0.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Users" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="DiplomModel.ConferenceForms" Width="1.5" PointX="13.5" PointY="26.625" />
+        <EntityTypeShape EntityType="DiplomModel.FilesConference" Width="1.5" PointX="10.5" PointY="34" />
+        <EntityTypeShape EntityType="DiplomModel.Languages" Width="1.5" PointX="13.25" PointY="34.5" />
+        <EntityTypeShape EntityType="DiplomModel.Messages" Width="1.5" PointX="10.5" PointY="27.25" />
+        <EntityTypeShape EntityType="DiplomModel.UserRoles" Width="1.5" PointX="5.25" PointY="1.875" />
+        <AssociationConnector Association="DiplomModel.FK_Users_UserRoles1" />
+        <EntityTypeShape EntityType="DiplomModel.AnswersQuestions" Width="1.5" PointX="15.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DiplomModel.Application" Width="1.5" PointX="13.5" PointY="15.625" />
+        <EntityTypeShape EntityType="DiplomModel.Check" Width="1.5" PointX="18" PointY="15.875" />
+        <EntityTypeShape EntityType="DiplomModel.CheckStatus" Width="1.5" PointX="15.75" PointY="12.5" />
+        <EntityTypeShape EntityType="DiplomModel.KeyDates" Width="1.5" PointX="10.5" PointY="37" />
+        <EntityTypeShape EntityType="DiplomModel.LanguagesConference" Width="1.5" PointX="15.5" PointY="31.625" />
+        <EntityTypeShape EntityType="DiplomModel.ParticipationForms" Width="1.5" PointX="11.25" PointY="24.75" />
+        <EntityTypeShape EntityType="DiplomModel.ResearchAreas" Width="1.5" PointX="13.5" PointY="12" />
+        <EntityTypeShape EntityType="DiplomModel.UsersMessages" Width="1.5" PointX="12.75" PointY="9" />
+        <AssociationConnector Association="DiplomModel.FK_AnswersQuestions_Application" />
+        <AssociationConnector Association="DiplomModel.FK_Application_ParticipationForms" />
+        <AssociationConnector Association="DiplomModel.FK_Application_Users" />
+        <AssociationConnector Association="DiplomModel.FK_Check_CheckStatus" />
+        <AssociationConnector Association="DiplomModel.FK_ConferenceForms_ParticipationForms" />
+        <AssociationConnector Association="DiplomModel.FK_LanguagesConference_Languages1" />
+        <AssociationConnector Association="DiplomModel.FK_UsersMessages_Messages1" />
+        <AssociationConnector Association="DiplomModel.FK_UsersMessages_Users1" />
+        <EntityTypeShape EntityType="DiplomModel.OrganizingCommittee" Width="1.5" PointX="10.5" PointY="30.25" />
+        <EntityTypeShape EntityType="DiplomModel.OrganizingCommitteeMembers" Width="1.5" PointX="12.75" PointY="30.125" />
+        <AssociationConnector Association="DiplomModel.FK_OrganizingCommitteeMembers_OrganizingCommittee1" />
+        <EntityTypeShape EntityType="DiplomModel.Conferences" Width="1.5" PointX="8.25" PointY="23.375" />
+        <EntityTypeShape EntityType="DiplomModel.ConferenceStatus" Width="1.5" PointX="10.5" PointY="21.5" />
+        <EntityTypeShape EntityType="DiplomModel.Statuses" Width="1.5" PointX="8.25" PointY="20.75" />
+        <AssociationConnector Association="DiplomModel.FK_Application_Conferences" />
+        <AssociationConnector Association="DiplomModel.FK_ConferenceForms_Conferences" />
+        <AssociationConnector Association="DiplomModel.FK_ConferenceStatus_Conferences" />
+        <AssociationConnector Association="DiplomModel.FK_FilesConference_Conferences" />
+        <AssociationConnector Association="DiplomModel.FK_KeyDates_Conferences1" />
+        <AssociationConnector Association="DiplomModel.FK_LanguagesConference_Conferences1" />
+        <AssociationConnector Association="DiplomModel.FK_Messages_Conferences1" />
+        <AssociationConnector Association="DiplomModel.FK_OrganizingCommittee_Conferences1" />
+        <AssociationConnector Association="DiplomModel.FK_ResearchAreas_Conferences1" />
+        <AssociationConnector Association="DiplomModel.FK_ConferenceStatus_Statuses" />
+        <EntityTypeShape EntityType="DiplomModel.ApplicationStatus" Width="1.5" PointX="0.75" PointY="3.875" />
+        <AssociationConnector Association="DiplomModel.FK_Application_ApplicationStatus" />
+        <EntityTypeShape EntityType="DiplomModel.Report" Width="1.5" PointX="15.75" PointY="15.25" />
+        <AssociationConnector Association="DiplomModel.FK_Report_Application" />
+        <AssociationConnector Association="DiplomModel.FK_Check_Report" />
+        <AssociationConnector Association="DiplomModel.FK_Report_ResearchAreas" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
