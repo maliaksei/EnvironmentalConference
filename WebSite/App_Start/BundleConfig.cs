@@ -53,7 +53,7 @@ namespace WebSite
                       "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/css/ui.jqgrid.css",
                       "~/Content/css/jquery-ui.css",
-                      "~/Content/css/jqGrid.bootstrap.css," +
+                      "~/Content/css/jqGrid.bootstrap.css",
                       "~/Content/SelectPicker/bootstrap-select.css"));
         }
     }
