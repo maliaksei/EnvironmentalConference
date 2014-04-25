@@ -54,7 +54,7 @@
     $(function () {
         $('#datetimepicker1').datetimepicker();
     });
-    function convertDateTime(dateTime) {
+    function convertDateTime2(dateTime) {
         var newDateTime = dateTime;
         var dateAndTimeList = newDateTime.split(' ');
         var dateList = dateAndTimeList[0].split('.');
@@ -65,7 +65,7 @@
 
     $(document).ready(function () {
         //$('.selectpicker').selectpicker();
-        $('#datetimepicker1').data('datetimepicker').setDate(convertDateTime('@Model.EstimatedTimeOfArrival'));
+        $('#datetimepicker1').data('datetimepicker').setDate(convertDateTime2('@Model.EstimatedTimeOfArrival'));
     });
 
     $('#SaveConferenceOther').submit(function () {

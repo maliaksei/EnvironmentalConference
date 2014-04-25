@@ -45,9 +45,9 @@ namespace WebSite.Controllers
           return View(viewActiveConference);
         }
 
-        public ActionResult DetailsOfTheConference(int id)
+        public ActionResult DetailsOfTheConference(int conferenceId)
         {
-            var conference = dataManager.ConferenceRepository.GetAll().ConferenceById(id);
+            var conference = dataManager.ConferenceRepository.GetAll().ConferenceById(conferenceId);
             if (conference != null)
             {
                 var model = new DetailsOfTheConferenceViewModel
