@@ -321,11 +321,11 @@
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\jqGrid.bootstrap.css" />
-    <Content Include="Content\css\jquery-ui.css" />
-    <Content Include="Content\css\ui.jqdropdownlist.css" />
-    <Content Include="Content\css\ui.jqgrid.css" />
-    <Content Include="Content\css\ui.jqtreeview.css" />
+    <Content Include="Content\style\jqGrid.bootstrap.css" />
+    <Content Include="Content\style\jquery-ui.css" />
+    <Content Include="Content\style\ui.jqdropdownlist.css" />
+    <Content Include="Content\style\ui.jqgrid.css" />
+    <Content Include="Content\style\ui.jqtreeview.css" />
     <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
