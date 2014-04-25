@@ -14,7 +14,7 @@ namespace Helpers
 {
     public static class UserReportsHelper
     {
-        private static readonly DataManager dataManager = new DataManager();
+        private static  DataManager dataManager = new DataManager();
         private static string _directoryForReport;
 
         public static void RemoveAllFilesFromReport(Guid reportId, string serverPathToReports)
@@ -30,6 +30,7 @@ namespace Helpers
 
         public static void CreateReport(UserReportsViewModel viewModel, string serverPathToReports)
         {
+            dataManager = new DataManager();
             var reportId = Guid.NewGuid();
             try
             {
