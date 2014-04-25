@@ -330,6 +330,21 @@
   <data name="OrganizingCommittee_SuccessMessage" xml:space="preserve">
     <value>Data has been successfully saved</value>
   </data>
+  <data name="ParticipantsConference_ArrivalTime" xml:space="preserve">
+    <value>Arrival Time</value>
+  </data>
+  <data name="ParticipantsConference_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ParticipantsConference_FormOfParticipation" xml:space="preserve">
+    <value>Form Of Participation</value>
+  </data>
+  <data name="ParticipantsConference_FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="ParticipantsConference_IsHostel" xml:space="preserve">
+    <value>Is Hostel</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>

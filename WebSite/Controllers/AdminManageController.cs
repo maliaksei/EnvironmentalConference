@@ -9,6 +9,7 @@ using Helpers;
 using Membership;
 using Microsoft.AspNet.Identity;
 using Models.ViewModels;
+using Models.ViewModels.AdminAccount;
 using Models.ViewModels.EditConferenceViewModels;
 using Models.ViewModels.UserAccount;
 using Repository;
@@ -184,7 +185,20 @@ namespace WebSite.Controllers
 
         public ActionResult DetailsInfoForConference(int conferenceId)
         {
-            return View();
+            var conference = dataManager.ConferenceRepository.GetAll().ConferenceById(conferenceId);
+
+            var model = new DetailsInfoForAdminAccount
+            {
+                ConferenceSummaryInfo = new ConferenceSummaryInfoViewModel()
+                {
+                    ConferenceId = conference.ConferenceId,
+                    NameOfConference = conference.Name,
+                    BriefInformation = conference.BriefInformation,
+                    StartDate = conference.StartDate,
+                    MeetingPoint = conference.MeetingPoint
+                }
+            };
+            return View(model);
         }
 
         #endregion

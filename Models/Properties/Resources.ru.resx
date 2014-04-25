@@ -330,6 +330,21 @@
   <data name="OrganizingCommittee_SuccessMessage" xml:space="preserve">
     <value>Данные успешно сохранены</value>
   </data>
+  <data name="ParticipantsConference_ArrivalTime" xml:space="preserve">
+    <value>Время прибытия</value>
+  </data>
+  <data name="ParticipantsConference_Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="ParticipantsConference_FormOfParticipation" xml:space="preserve">
+    <value>Форма участия</value>
+  </data>
+  <data name="ParticipantsConference_FullName" xml:space="preserve">
+    <value>ФИО участиника</value>
+  </data>
+  <data name="ParticipantsConference_IsHostel" xml:space="preserve">
+    <value>Необходимость гостиницы</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>

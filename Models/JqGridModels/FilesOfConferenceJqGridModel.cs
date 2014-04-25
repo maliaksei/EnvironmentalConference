@@ -74,7 +74,7 @@ namespace Models.JqGridModels
                 EditDialogSettings = new EditDialogSettings
                 {
                     CloseAfterEditing = true,
-
+                    
                 },
                 AddDialogSettings = new AddDialogSettings
                 {

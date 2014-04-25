@@ -700,6 +700,51 @@ namespace Models.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arrival Time.
+        /// </summary>
+        public static string ParticipantsConference_ArrivalTime {
+            get {
+                return ResourceManager.GetString("ParticipantsConference_ArrivalTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string ParticipantsConference_Comment {
+            get {
+                return ResourceManager.GetString("ParticipantsConference_Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form Of Participation.
+        /// </summary>
+        public static string ParticipantsConference_FormOfParticipation {
+            get {
+                return ResourceManager.GetString("ParticipantsConference_FormOfParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Name.
+        /// </summary>
+        public static string ParticipantsConference_FullName {
+            get {
+                return ResourceManager.GetString("ParticipantsConference_FullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Hostel.
+        /// </summary>
+        public static string ParticipantsConference_IsHostel {
+            get {
+                return ResourceManager.GetString("ParticipantsConference_IsHostel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {

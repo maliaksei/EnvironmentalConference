@@ -422,5 +422,29 @@ namespace WebSite.Controllers
             return null;
         }
         #endregion
+
+        #region Participations of the conference
+        public JsonResult ParticipationConferenceDataBindJsonResult()
+        {
+            if (HttpContext.Request.UrlReferrer == null) return null;
+            var conferenceId = int.Parse(HttpContext.Request.UrlReferrer.Segments[3]);
+            var gridModel = new ParticipantsConferenceJqGridModel();
+            return
+                gridModel.OrdersGrid.DataBind(
+                    dataManager.ConferenceRepository.GetAll().ConferenceById(conferenceId).Application.AsEnumerable()
+                        .Select(evnt =>
+                            new
+                            {
+                                DateId = evnt.UserId,
+                                FullName = evnt.Users.Name + " " + evnt.Users.Surname + " " + evnt.Users.Patronymic,
+                                IsHostel = evnt.IsHotel,
+                                ConferenceId = evnt.ConferenceId,
+                                FormOfParticipation = evnt.ParticipationForms.Name,
+                                Comment = evnt.Comment,
+                                ArrivalTime = evnt.ArrivalTime
+                            }).AsQueryable());
+        }
+
+        #endregion
     }
 }
