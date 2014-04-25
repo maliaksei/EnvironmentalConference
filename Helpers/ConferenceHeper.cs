@@ -65,6 +65,7 @@ namespace Helpers
 
         public static Conferences AddConference(SummaryViewModel model)
         {
+            dataManager = new DataManager();
             if (!model.IsValid()) return null;
             var conferenceModel = new Conferences
             {
